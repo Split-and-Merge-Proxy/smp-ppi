@@ -12,27 +12,23 @@ pip install -r requirements.txt
 ```
 
 ## 2. Data Preparation
-You can download the ppi data from [SMP - Harvard Dataverse](https://doi.org/10.7910/DVN/22AUPR) and place it in the `./cache` folder.
+```bash
+bash ./scripts/0.prepare-dataset.sh
+```
+
+
+<!-- You can download the ppi data from [SMP - Harvard Dataverse](https://doi.org/10.7910/DVN/22AUPR) and place it in the `./data` folder. -->
 
 ## 3. Training (Optional)
 ### PPITrans
 ```bash
-# Pytorch DDP
 bash ./scripts/equidock/dist_train.sh
-# Slurm 
-bash ./scripts/equidock/slurm_train.sh
 ```
 **Note:** you can change the `data_fraction` in the Shell file to determine the amount of training data.
 
 ### SMP
 ```bash
-# Pytorch launcher
 bash ./scripts/smp/dist_pretrain.sh
-bash ./scripts/smp/dist_finetune.sh
-
-# Slurm launcher
-bash ./scripts/smp/slurm_pretrain.sh
-bash ./script/smp/slurm_finetune.sh
 ```
 **Note:** you can change the `data_fraction` in the Shell file to determine the amount of fine-tuning data (pre-training data does not support yet) and `resume_ckpt` to your own directory.
 
@@ -44,9 +40,6 @@ bash ./script/smp/slurm_finetune.sh
 # Pytorch launcher
 bash ./scripts/equidock/dist_inference.sh
 bash ./scripts/equidock/dist_eval.sh
-# Slurm launcher
-bash ./scripts/equidock/slurm_inference.sh
-bash ./scripts/equidock/slurm_eval.sh
 ```
 
 ### SMP
@@ -54,9 +47,6 @@ bash ./scripts/equidock/slurm_eval.sh
 # Pytorch launcher
 bash ./scripts/smp/dist_inference.sh
 bash ./scripts/smp/dist_eval.sh
-# Slurm launcher
-bash ./scripts/smp/slurm_inference.sh
-bash ./scripts/smp/slurm_eval.sh
 ```
 
 ## Acknowledges
