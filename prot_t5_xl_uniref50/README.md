@@ -1,0 +1,1 @@
+Download the ckpt from the [huggingface](https://huggingface.co/Rostlab/prot_t5_xl_uniref50).
