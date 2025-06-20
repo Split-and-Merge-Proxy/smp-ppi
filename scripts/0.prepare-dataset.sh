@@ -6,7 +6,7 @@ python data/builddataset.py \
     --max_length    800 \
     --min_length    20  
 
-python data/hippie/embed.py  \
+python data/embed.py  \
     --pretrained_model ./prot_t5_xl_uniref50 \
     --processed_dir ./data/hippie/processed \
     --device 7 \

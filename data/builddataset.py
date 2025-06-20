@@ -90,10 +90,7 @@ if __name__ == '__main__':
 
     pair_fns = os.listdir(args.pair_dir)
     for pairfn in pair_fns:
-        if pairfn != "pseudomultimerbalance_train.tsv":
-            continue
 
-        print('---------->process balanced pseudo multimer<----------')
         organism = pairfn.split("_")[0].strip()
         pairfp = os.path.join(args.pair_dir, pairfn)
         fastafp = os.path.join(args.seq_dir, organism + ".fasta")        

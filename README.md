@@ -15,45 +15,42 @@ pip install -r requirements.txt
 ```bash
 bash ./scripts/0.prepare-dataset.sh
 ```
+**Note:** you should download the pre-trained ProtT5 ckpt and put it in the `./prot_t5_xl_uniref50` folder. Additionally, you can change the `pair_dir`, `seq_dir`, and `processed_dir` in the Shell file to prepare different dataset.
 
-
-<!-- You can download the ppi data from [SMP - Harvard Dataverse](https://doi.org/10.7910/DVN/22AUPR) and place it in the `./data` folder. -->
 
 ## 3. Training (Optional)
 ### PPITrans
 ```bash
-bash ./scripts/equidock/dist_train.sh
+bash ./scripts/ppitrans/1.train-ppi-trans.sh
 ```
-**Note:** you can change the `data_fraction` in the Shell file to determine the amount of training data.
+**Note:** you can change the `DATASET` in the Shell file to determine the dataset.
 
 ### SMP
 ```bash
-bash ./scripts/smp/dist_pretrain.sh
+bash ./scripts/smp/1.pre-train-ppi-trans.sh
+bash ./scripts/smp/2.fine-tune-ppi-trans.sh
 ```
-**Note:** you can change the `data_fraction` in the Shell file to determine the amount of fine-tuning data (pre-training data does not support yet) and `resume_ckpt` to your own directory.
-
+**Note:** you can change the `DATASET` in the fine-tune Shell file to determine the dataset and `finetune-from-model` to your own directory.
 
 
 ## 4. Evaluations
 ### PPITrans
 ```bash
-# Pytorch launcher
-bash ./scripts/equidock/dist_inference.sh
-bash ./scripts/equidock/dist_eval.sh
+bash ./scripts/ppitrans/2.predict-ppi.sh
+bash ./scripts/ppitrans/3.evaluate-ppi.sh
 ```
 
 ### SMP
 ```bash
-# Pytorch launcher
-bash ./scripts/smp/dist_inference.sh
-bash ./scripts/smp/dist_eval.sh
+bash ./scripts/smp/3.predict-ppi.sh 
+bash ./scripts/smp/4.evaluate-ppi.sh
 ```
 
 ## Acknowledges
 - [PPITrans](https://github.com/LtECoD/PPITrans)
 - [D-SCRIPT](https://github.com/samsledje/D-SCRIPT)
 - [ESM](https://github.com/facebookresearch/esm)
-- [ProstT5](https://github.com/mheinzinger/ProstT5)
+- [ProtTrans](https://github.com/agemagician/ProtTrans)
 - [fairseq](https://github.com/facebookresearch/fairseq)
 
 

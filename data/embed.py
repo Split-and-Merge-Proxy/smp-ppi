@@ -61,10 +61,6 @@ if __name__ == '__main__':
 
     for seqfn in os.listdir(seq_dir):
 
-        if seqfn != 'pseudomultimerbalance_train.fasta':
-            continue
-
-        print('---------->process balanced pseudo multimer<----------')
         sub_emb_dir = os.path.join(emb_dir, os.path.splitext(seqfn)[0])
         if not os.path.exists(sub_emb_dir):
             os.mkdir(sub_emb_dir)

@@ -1,9 +1,9 @@
 #! /bin/bash
 
-DATASET=dscript
+DATASET=hippie
 ARCH=ppi
 
-TEST_SET=('human_test')
+TEST_SET=('hippie_test')
 
 for set in ${TEST_SET[*]}; do
         # with ppm
@@ -12,12 +12,12 @@ for set in ${TEST_SET[*]}; do
         --task ppi \
         \
         --arch ${ARCH} \
-        --path  ./save/${DATASET}/restore_${ARCH}/checkpoint_best.pt \
+        --path  ./save/${DATASET}/restore_${ARCH}_best/checkpoint_best.pt \
         --emb-dim 1024 \
         --hid-dim 256 \
         \
-        --results-path  ./results/${DATASET}/restore_${ARCH}/prediction  \
-        --rep-path ./results/${DATASET}/restore_${ARCH}/rep \
+        --results-path  ./results/${DATASET}/restore_${ARCH}_best/prediction  \
+        --rep-path ./results/${DATASET}/restore_${ARCH}_best/rep \
         \
         --data-dir ./data/${DATASET}/processed \
         --max-len 800 \
