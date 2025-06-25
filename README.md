@@ -17,8 +17,11 @@ bash ./scripts/0.prepare-dataset.sh
 ```
 **Note:** you should download the pre-trained ProtT5 ckpt and put it in the `./prot_t5_xl_uniref50` folder. Additionally, you can change the `pair_dir`, `seq_dir`, and `processed_dir` in the Shell file to prepare different dataset.
 
+You can directly download the ppi data from [SMP - Harvard Dataverse](https://doi.org/10.7910/DVN/0QURCP) and place it in the `./data` folder.
 
-## 3. Training (Optional)
+
+
+## 3. Training
 ### PPITrans
 ```bash
 bash ./scripts/ppitrans/1.train-ppi-trans.sh
