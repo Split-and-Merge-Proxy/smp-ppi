@@ -49,6 +49,37 @@ bash ./scripts/smp/3.predict-ppi.sh
 bash ./scripts/smp/4.evaluate-ppi.sh
 ```
 
+## 5. Reproducing the Results Reported in the Manuscript
+To reproduce the results reported in our manuscript, first download the processed test set (`dscript_test.zip`for the D-SCRIPT dataset and `hippie.zip` for the HIPPIE dataset) from https://doi.org/10.7910/DVN/0QURCP and unzip them.
+
+Then, change the `method_name` in the `test.sh` to determine whether eval the EquiDock or SMP method. And we have already provided the ckpts for EquiDock and SMP in the `./checkpts` folder, you can download them and change the `ckpt_path` in the `test.sh` to your own local path, and run the following command:
+
+```bash
+bash ./scripts/test.sh
+```
+
+The expected results are shown below.
+
+**D-SCRIPT Test Set**
+
+|Method| Recall | F1-Score | AUPR |
+|----------|----------|----------|----------|
+|PPITrans| 0.487 | 0.640  |  0.775 |
+|SMP|  0.594 | 0.708  | 0.788  |
+
+
+**HIPPIE Test Set**
+
+|Method| Recall |F1-Score | AUPR |
+|----------|----------|----------|----------|
+|PPITrans| 0.692 | 0.674  | 0.712  |
+|SMP| 0.746  | 0.693  | 0.726  |
+
+
+## 6. Inference on your custom data
+
+
+
 ## Acknowledges
 - [PPITrans](https://github.com/LtECoD/PPITrans)
 - [D-SCRIPT](https://github.com/samsledje/D-SCRIPT)
