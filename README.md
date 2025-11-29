@@ -15,39 +15,32 @@ pip install -r requirements.txt
 ```bash
 bash ./scripts/0.prepare-dataset.sh
 ```
-**Note:** you should download the pre-trained ProtT5 ckpt and put it in the `./prot_t5_xl_uniref50` folder. Additionally, you can change the `pair_dir`, `seq_dir`, and `processed_dir` in the Shell file to prepare different dataset.
+**Note:** Please download the pre-trained ProtT5 checkpoint and place it in the `./prot_t5_xl_uniref50` folder. You can also modify the `pair_dir`, `seq_dir`, and `processed_dir` in the shell script to prepare different datasets.
 
-You can directly download the ppi data from [SMP - Harvard Dataverse](https://doi.org/10.7910/DVN/0QURCP) and place it in the `./data` folder.
+Aditionally, we have already uploaded the processed ppi data, you can directly download it from [SMP - Harvard Dataverse](https://doi.org/10.7910/DVN/0QURCP) and place it in the `./data` folder.
 
 
 
 ## 3. Training
 ### PPITrans
 ```bash
-bash ./scripts/ppitrans/1.train-ppi-trans.sh
+bash ./scripts/1.ppitrans-train.sh
 ```
-**Note:** you can change the `DATASET` in the Shell file to determine the dataset.
+**Note:** You can change the `DATASET` in the shell script to determine the dataset (D-SCRIPT or HIPPIE).
 
 ### SMP
 ```bash
-bash ./scripts/smp/1.pre-train-ppi-trans.sh
-bash ./scripts/smp/2.fine-tune-ppi-trans.sh
+bash ./scripts/1.smp-pretrain.sh
+bash ./scripts/1.smp-finetune.sh
 ```
-**Note:** you can change the `DATASET` in the fine-tune Shell file to determine the dataset and `finetune-from-model` to your own directory.
+**Note:** You can change the `DATASET` variable in the fine-tuning shell script to select the dataset, and change `finetune-from-model` or `restore-file` to point to your own directory.
 
 
 ## 4. Evaluations
-### PPITrans
 ```bash
-bash ./scripts/ppitrans/2.predict-ppi.sh
-bash ./scripts/ppitrans/3.evaluate-ppi.sh
+bash ./scripts/test.sh
 ```
-
-### SMP
-```bash
-bash ./scripts/smp/3.predict-ppi.sh 
-bash ./scripts/smp/4.evaluate-ppi.sh
-```
+**Note:** You can set `DATASET` and `TEST_SET` to either D-SCRIPT or HIPPIE, and change `path` to point to your own directory containing the trained checkpoint.
 
 ## 5. Reproducing the Results Reported in the Manuscript
 To reproduce the results reported in our manuscript, first download the processed test set (`dscript_test.zip`for the D-SCRIPT dataset and `hippie.zip` for the HIPPIE dataset) from https://doi.org/10.7910/DVN/0QURCP and unzip them.
@@ -76,8 +69,8 @@ The expected results are shown below.
 |SMP| 0.746  | 0.693  | 0.726  |
 
 
-## 6. Inference on your custom data
-
+## 6. Inference on Your Custom Data
+We have uploaded 
 
 
 ## Acknowledges
