@@ -43,9 +43,9 @@ bash ./scripts/test.sh
 **Note:** You can set `DATASET` and `TEST_SET` to either D-SCRIPT or HIPPIE, and change `path` to point to your own directory containing the trained checkpoint.
 
 ## 5. Reproducing the Results Reported in the Manuscript
-To reproduce the results reported in our manuscript, first download the processed test set (`dscript_test.zip`for the D-SCRIPT dataset and `hippie.zip` for the HIPPIE dataset) from https://doi.org/10.7910/DVN/0QURCP and unzip them.
+To reproduce the results reported in our manuscript, first download the processed test sets (`dscript_test.zip` for the D-SCRIPT dataset and `hippie.zip` for the HIPPIE dataset) from https://doi.org/10.7910/DVN/0QURCP and unzip them. We have also uploaded the trained checkpoints (both PPITrans and SMP) in the `./ckpts` folder; please download them and place them in your desired directory.
 
-Then, change the `method_name` in the `test.sh` to determine whether eval the EquiDock or SMP method. And we have already provided the ckpts for EquiDock and SMP in the `./checkpts` folder, you can download them and change the `ckpt_path` in the `test.sh` to your own local path, and run the following command:
+Next, set the `DATASET` and `TEST_SET` to specify which dataset to evaluate, update `path` to point to your directory containing the trained checkpoint, and then run the following command:
 
 ```bash
 bash ./scripts/test.sh
@@ -70,8 +70,12 @@ The expected results are shown below.
 
 
 ## 6. Inference on Your Custom Data
-We have uploaded 
+We have already uploaded the trained weights of SMP in the `./ckpts`, you can directly download it and place it in your own directory. Additionally, we provide an example in `./example` that demonstrates how to perform inference on your own custom data. You can run it with:
 
+```bash
+python -u custom_inference.py
+```
+The output will print whether the two input proteins interact.
 
 ## Acknowledges
 - [PPITrans](https://github.com/LtECoD/PPITrans)
